@@ -1,0 +1,16 @@
+{
+    "dataset": {
+        "data_files": [
+            "data/cfdata/cf74.xml",
+            "data/cfdata/cf75.xml",
+            "data/cfdata/cf76.xml",
+            "data/cfdata/cf77.xml",
+            "data/cfdata/cf78.xml",
+            "data/cfdata/cf79.xml"
+        ],
+        "qrels": [
+            "data/cfdata/cfquery.xml"
+        ]
+    },
+    "output": "docker/data"
+}
