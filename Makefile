@@ -26,6 +26,7 @@ schema:
 
 .PHONY: populate
 populate:
+	python scripts/preprocess.py --config_path config/config.json
 	docker exec -it solr bin/solr post -c cfdata /data/data.json
 
 .PHONY: create_core
