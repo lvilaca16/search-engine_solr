@@ -1,0 +1,19 @@
+services:
+  solr:
+    container_name: solr
+
+    image: solr:9.7
+
+    ports:
+     - "8983:8983"
+
+    volumes:
+      - static_data:/data
+
+volumes:
+  static_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: data
+      o: bind
