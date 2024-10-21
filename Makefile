@@ -4,11 +4,19 @@ SHELL := /bin/bash
 .PHONY: help
 help:
 	@echo "Commands:"
+	@echo "style       : runs style formatting."
 	@echo "down        : stops all running services, removes containers and volumes."
 	@echo "up          : start Docker daemon and Solr."
 	@echo "schema      : update schema using docker/data/schema.json."
 	@echo "populate    : populate Solr using docker/data/data.json."
 	@echo "create_core : populate Solr using docker/data/data.json."
+
+.PHONY: style
+style:
+	isort src scripts --atomic
+	black -l 100 src scripts
+	flake8 src scripts
+
 .PHONY: down
 down:
 	docker compose -f docker/docker-compose.yml down --remove-orphans -v
