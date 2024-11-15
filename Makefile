@@ -10,6 +10,7 @@ help:
 	@echo "schema      : update schema using docker/data/schema.json."
 	@echo "populate    : populate Solr using docker/data/data.json."
 	@echo "create_core : populate Solr using docker/data/data.json."
+	@echo "trec_eval   : download trec_eval source code and compile it."
 
 .PHONY: style
 style:
@@ -40,3 +41,9 @@ populate:
 .PHONY: create_core
 create_core:
 	docker exec -it solr bin/solr create_core -c cfdata
+
+.PHONY: trec_eval
+trec_eval:
+	git clone https://github.com/usnistgov/trec_eval.git scripts/trec_eval
+	cd scripts/trec_eval && make
+	cd ../..
