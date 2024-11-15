@@ -1,0 +1,8 @@
+{
+    "params": {
+        "defType": "edismax",
+        "fl": "id title abstract minor_subj major_subj source score",
+        "qf": "title^1.5 abstract^2 minor_subj^1.25 major_subj^1.25 source",
+        "rows": 100
+    }
+}
